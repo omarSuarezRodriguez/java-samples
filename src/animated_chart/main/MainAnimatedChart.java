@@ -7,6 +7,7 @@ package animated_chart.main;
 
 import animated_chart.chart.ModelChart;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -20,10 +21,12 @@ public class MainAnimatedChart extends javax.swing.JFrame {
      */
     public MainAnimatedChart() {
         initComponents();
-        
+
         this.setTitle("Animated Chart");
-        
+
         getContentPane().setBackground(new Color(250, 250, 250));
+        jPanelValues.setBackground(new Color(250, 250, 250));
+        jPanelValues.setVisible(false);
         chart.addLegend("Income", new Color(245, 189, 135));
         chart.addLegend("Expense", new Color(135, 189, 245));
         chart.addLegend("Profit", new Color(189, 135, 245));
@@ -46,9 +49,23 @@ public class MainAnimatedChart extends javax.swing.JFrame {
     private void initComponents() {
 
         chart = new animated_chart.chart.Chart();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonRefreshAndClear = new javax.swing.JButton();
+        jButtonSetValues = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanelValues = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldValue1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldValue2 = new javax.swing.JTextField();
+        jTextFieldValue3 = new javax.swing.JTextField();
+        jTextFieldValue4 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jButtonChange = new javax.swing.JButton();
+        jButtonClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -59,50 +76,192 @@ public class MainAnimatedChart extends javax.swing.JFrame {
 
         chart.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
 
-        jButton1.setText("Refresh And Clear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRefreshAndClear.setText("Refresh And Clear");
+        jButtonRefreshAndClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonRefreshAndClearActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Set Values");
+        jButtonSetValues.setText("Set Values");
+        jButtonSetValues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSetValuesActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Animated Chart");
+
+        jPanelValues.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel2.setText("Name:");
+
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNameActionPerformed(evt);
+            }
+        });
+        jTextFieldName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldNameKeyPressed(evt);
+            }
+        });
+
+        jLabel3.setText("Value 1:");
+
+        jTextFieldValue1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldValue1KeyPressed(evt);
+            }
+        });
+
+        jLabel4.setText("Value 2:");
+
+        jLabel5.setText("Value 3:");
+
+        jLabel6.setText("Value 4:");
+
+        jTextFieldValue2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldValue2KeyPressed(evt);
+            }
+        });
+
+        jTextFieldValue3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldValue3KeyPressed(evt);
+            }
+        });
+
+        jTextFieldValue4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldValue4KeyPressed(evt);
+            }
+        });
+
+        jLabel7.setText("Set Values");
+
+        jButtonChange.setText("Change");
+        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangeActionPerformed(evt);
+            }
+        });
+
+        jButtonClear.setText("Clear");
+        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelValuesLayout = new javax.swing.GroupLayout(jPanelValues);
+        jPanelValues.setLayout(jPanelValuesLayout);
+        jPanelValuesLayout.setHorizontalGroup(
+            jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelValuesLayout.createSequentialGroup()
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelValuesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelValuesLayout.createSequentialGroup()
+                                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldValue2)
+                                    .addComponent(jTextFieldName)
+                                    .addComponent(jTextFieldValue1)))
+                            .addGroup(jPanelValuesLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldValue3))
+                            .addGroup(jPanelValuesLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldValue4))
+                            .addGroup(jPanelValuesLayout.createSequentialGroup()
+                                .addComponent(jButtonChange)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(jButtonClear))))
+                    .addGroup(jPanelValuesLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel7)))
+                .addContainerGap())
+        );
+        jPanelValuesLayout.setVerticalGroup(
+            jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelValuesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addGap(28, 28, 28)
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldValue1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextFieldValue2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextFieldValue3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextFieldValue4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(jPanelValuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonChange)
+                    .addComponent(jButtonClear))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(36, 36, 36))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
+                .addComponent(jPanelValues, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(jButtonRefreshAndClear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSetValues)
+                .addGap(101, 101, 101))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel1)
-                        .addGap(51, 51, 51)
-                        .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(71, 71, 71)
-                .addComponent(jButton2)
-                .addGap(25, 25, 25))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonRefreshAndClear)
+                            .addComponent(jButtonSetValues))
+                        .addGap(31, 31, 31)
+                        .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanelValues, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47))
         );
 
         pack();
@@ -113,7 +272,10 @@ public class MainAnimatedChart extends javax.swing.JFrame {
         chart.start();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonRefreshAndClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshAndClearActionPerformed
+
+        jPanelValues.setVisible(false);
+
         chart.clear();
         chart.addData(new ModelChart("January", new double[]{randomNumber(), randomNumber(), randomNumber(), randomNumber()}));
         chart.addData(new ModelChart("February", new double[]{randomNumber(), randomNumber(), randomNumber(), randomNumber()}));
@@ -122,7 +284,123 @@ public class MainAnimatedChart extends javax.swing.JFrame {
         chart.addData(new ModelChart("May", new double[]{randomNumber(), randomNumber(), randomNumber(), randomNumber()}));
         chart.addData(new ModelChart("June", new double[]{randomNumber(), randomNumber(), randomNumber(), randomNumber()}));
         chart.start();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonRefreshAndClearActionPerformed
+
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
+
+    private void jButtonSetValuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSetValuesActionPerformed
+
+        if (!jPanelValues.isVisible()) {
+
+            jPanelValues.setVisible(true);
+            jTextFieldName.requestFocus();
+
+        } else if (jPanelValues.isVisible()) {
+
+            jPanelValues.setVisible(false);
+
+        }
+
+
+    }//GEN-LAST:event_jButtonSetValuesActionPerformed
+
+    private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
+
+        if (validateFields()) {
+
+            chart.clear();
+            chart.addData(new ModelChart(jTextFieldName.getText(), new double[]{getValueJTextField(jTextFieldValue1),
+                getValueJTextField(jTextFieldValue2), getValueJTextField(jTextFieldValue3), getValueJTextField(jTextFieldValue4)}));
+            chart.start();
+
+        }
+
+    }//GEN-LAST:event_jButtonChangeActionPerformed
+
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
+
+        clearData();
+
+        jTextFieldName.requestFocus();
+
+
+    }//GEN-LAST:event_jButtonClearActionPerformed
+
+    private void jTextFieldNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNameKeyPressed
+
+        if (evt.getKeyCode() == 10) {
+
+            jButtonChange.doClick();
+
+        }
+
+
+    }//GEN-LAST:event_jTextFieldNameKeyPressed
+
+    private void jTextFieldValue1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValue1KeyPressed
+
+        // Verify if is number and send jTextField
+        if (isNumber(evt, jTextFieldValue1)) {
+
+            // If keypressed is enter
+            if (evt.getKeyCode() == 10) {
+
+                jButtonChange.doClick();
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jTextFieldValue1KeyPressed
+
+    private void jTextFieldValue2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValue2KeyPressed
+
+        // Verify if is number and send jTextField
+        if (isNumber(evt, jTextFieldValue2)) {
+
+            // If keypressed is enter
+            if (evt.getKeyCode() == 10) {
+
+                jButtonChange.doClick();
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jTextFieldValue2KeyPressed
+
+    private void jTextFieldValue3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValue3KeyPressed
+
+        // Verify if is number and send jTextField
+        if (isNumber(evt, jTextFieldValue3)) {
+
+            // If keypressed is enter
+            if (evt.getKeyCode() == 10) {
+
+                jButtonChange.doClick();
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jTextFieldValue3KeyPressed
+
+    private void jTextFieldValue4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValue4KeyPressed
+
+        // Verify if is number and send jTextField
+        if (isNumber(evt, jTextFieldValue4)) {
+
+            // If keypressed is enter
+            if (evt.getKeyCode() == 10) {
+
+                jButtonChange.doClick();
+            }
+
+        }
+
+    }//GEN-LAST:event_jTextFieldValue4KeyPressed
 
     /**
      * @param args the command line arguments
@@ -162,9 +440,23 @@ public class MainAnimatedChart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private animated_chart.chart.Chart chart;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonChange;
+    private javax.swing.JButton jButtonClear;
+    private javax.swing.JButton jButtonRefreshAndClear;
+    private javax.swing.JButton jButtonSetValues;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanelValues;
+    private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldValue1;
+    private javax.swing.JTextField jTextFieldValue2;
+    private javax.swing.JTextField jTextFieldValue3;
+    private javax.swing.JTextField jTextFieldValue4;
     // End of variables declaration//GEN-END:variables
 
     // Method to generate random number
@@ -181,25 +473,107 @@ public class MainAnimatedChart extends javax.swing.JFrame {
         return random;
 
     }
-    
-    
+
+    // Method to get int value of JTextField
     private int getValueJTextField(JTextField jTextField) {
-        
+
         int value;
         value = Integer.parseInt(jTextField.getText());
-        
+
         return value;
-        
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    // Method to clear data
+    private void clearData() {
+
+        jTextFieldName.setText("");
+        jTextFieldValue1.setText("");
+        jTextFieldValue2.setText("");
+        jTextFieldValue3.setText("");
+        jTextFieldValue4.setText("");
+
+    }
+
+    // Method to Validate Fields
+    private boolean validateFields() {
+
+        boolean validator = false;
+
+        // jTextFieldName Validator
+        if (!jTextFieldName.getText().isEmpty()) {
+
+            // jTextFieldValue1 Validator
+            if (!jTextFieldValue1.getText().isEmpty()) {
+
+                // jTextFieldValue2 Validator
+                if (!jTextFieldValue2.getText().isEmpty()) {
+
+                    // jTextFieldValue3 Validator
+                    if (!jTextFieldValue3.getText().isEmpty()) {
+
+                        // jTextFieldValue4 Validator
+                        if (!jTextFieldValue4.getText().isEmpty()) {
+
+                            validator = true;
+
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Enter Value 4");
+                            jTextFieldValue4.requestFocus();
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Enter Value 3");
+                        jTextFieldValue3.requestFocus();
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Enter Value 2");
+                    jTextFieldValue2.requestFocus();
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Enter Value 1");
+                jTextFieldValue1.requestFocus();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Enter name");
+            jTextFieldName.requestFocus();
+        }
+
+        return validator;
+
+    }
+
+    // Method to know if key pressed is Number
+    private boolean isNumber(java.awt.event.KeyEvent evt, JTextField jTextField) {
+
+        //KeyCode == 10 -> Enter
+        //KeyCode == 37 -> Left
+        //KeyCode == 38 -> Up
+        //KeyCode == 39 -> Right
+        //KeyCode == 40 -> Down
+        //KeyCode == 8 -> Back_Space
+        //KeyCode == 16 -> Shift
+        //KeyCode == 17 -> Control
+        boolean validator = false;
+
+        if (Character.isDigit(evt.getKeyChar()) || evt.getKeyCode() == 10 || evt.getKeyCode() == 37
+                || evt.getKeyCode() == 38 || evt.getKeyCode() == 39 || evt.getKeyCode() == 40
+                || evt.getKeyCode() == 8 || evt.getKeyCode() == 16 || evt.getKeyCode() == 17) {
+
+            validator = true;
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Only Numbers");
+            jTextField.setText("");
+            jTextField.requestFocus();
+        }
+
+        return validator;
+
+    }
 
 }
