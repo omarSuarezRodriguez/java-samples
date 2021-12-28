@@ -16,7 +16,7 @@ To build and run this project:
 #### Animated Chart
 
 
-| [**Animated Chart**](http://archive.org/download/jdk-8u111-nb-8_2/)     | 
-|------------|-------------| 
-|  <img src="https://i.ibb.co/JFZNkqy/247.png" width=""> 
+| [**Animated Chart**](http://archive.org/download/jdk-8u111-nb-8_2/)     
+|------------|-------------|
+|  <img src="https://i.ibb.co/JFZNkqy/247.png" width="600"> |
 
